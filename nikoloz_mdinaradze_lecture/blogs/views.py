@@ -5,4 +5,8 @@ from blogs.models import Blog
 
 # Create your views here.
 def blogs_list(request):
-    return render(request, 'blogs/blogs_list.html')
+    all_blogs = Blog.objects.all()
+    context = {
+        'blogs': all_blogs
+    }
+    return render(request, 'blogs/blogs_list.html', context=context)
